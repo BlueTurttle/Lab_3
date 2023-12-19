@@ -1,0 +1,16 @@
+<div class="container">
+  <mat-card>
+    <mat-card-content>
+      <mat-list>
+        <div mat-subheader>Files</div>
+        <mat-list-item *ngFor="let file of files" [disabled]="file.isFolder">
+          <mat-icon *ngIf="file.isFolder" matListItemIcon>folder</mat-icon>
+          <mat-icon *ngIf="!file.isFolder" matListItemIcon>attachment</mat-icon>
+          <div matListItemTitle [ngStyle]="{
+        'cursor': (!file.isFolder)?'pointer':'default'
+        }" (click)="showFile(file)">{{file.name}}</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>
